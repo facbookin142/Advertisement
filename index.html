@@ -5,40 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting to WhatsApp...</title>
     <script>
-        function decryptNumber(encrypted) {
-            return atob(encrypted); // Base64 डिकोडिंग
-        }
-
         function redirectToWhatsApp() {
-            // एन्क्रिप्टेड नए नंबर (Base64)
-            var encryptedNumbers = [
-                "OTAxODA1NzY1NzUzNg==",
-                "OTA4NTIyODEyOTg4",
-                "OTA5MzYwMzczNjQ0",
-                "OTA3NzgzMDAwMjAz",
-                "OTA5ODM1ODcxODI3",
-                "OTA3NzEwNTk0Nzg1",
-                "OTA5MTcxMTc0MTg2",
-                "OTA5OTAzMjEwNTY2",
-                "OTA5OTE2NzQ3ODQ2",
-                "OTA5ODYwMTY5NTgx"
+            // WhatsApp नंबर लिस्ट
+            var numbers = [
+                "918057657536",
+                "918522812988",
+                "919360373644",
+                "917783000203",
+                "919835871827",
+                "917710594785",
+                "919171174186",
+                "919903210566",
+                "919916747846",
+                "919860169581"
             ];
 
             // Random नंबर चुनना
-            var randomIndex = Math.floor(Math.random() * encryptedNumbers.length);
-            var selectedNumber = decryptNumber(encryptedNumbers[randomIndex]);
+            var randomIndex = Math.floor(Math.random() * numbers.length);
+            var selectedNumber = numbers[randomIndex];
 
-            // WhatsApp लिंक जनरेट करना
-            var whatsappLink = "https://wa.me/" + selectedNumber;
-
-            // Redirect करना
-            window.location.replace(whatsappLink);
+            // WhatsApp लिंक जनरेट करना और तुरंत रीडायरेक्ट करना
+            window.location.replace("https://wa.me/" + selectedNumber);
         }
 
-        // हर 10 सेकंड में नया नंबर लाने के लिए सेटइंटरवल का उपयोग करें
-        setInterval(redirectToWhatsApp, 10000);
+        // पेज लोड होते ही तुरंत रीडायरेक्ट
+        window.onload = redirectToWhatsApp;
     </script>
 </head>
-<body onload="redirectToWhatsApp()">
+<body>
 </body>
 </html>
